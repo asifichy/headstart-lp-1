@@ -25,7 +25,6 @@ const HomeExpereinces = () => {
 		lenis.on("scroll", ScrollTrigger.update);
 
 		// Make ScrollTrigger use Lenis's scroll
-		
 
 		function raf(time: number) {
 			lenis.raf(time);
@@ -74,18 +73,20 @@ const HomeExpereinces = () => {
 			/>
 			<div
 				ref={sectionRef}
-				className="relative w-full xl:h-[797px] md:h-[598px] sm:h-[467px] h-[230px] xl:mt-[120px] md:mt-[90px] my-20">
-                <Image src={"/images/design-pro/bg.png"} fill className="object-contain" alt="bg" />
-				<div className="grid grid-cols-[repeat(5,301px)] items-start justify-center absolute top-0 left-1/2 -translate-x-1/2 xl:gap-[26px] md:gap-6 sm:gap-4">
+				className="relative w-full  xl:mt-[120px] md:mt-[90px] my-20 overflow-hidden">
+				<div className="xl:h-[797px] md:h-[598px] sm:h-[467px] h-[230px] block relative w-full"></div>
+				<Image
+					src={"/images/design-pro/bg.png"}
+					fill
+					className="object-contain"
+					alt="bg"
+				/>
+				<div className="flex items-start justify-center absolute top-0 h-full bottom-0 left-1/2 -translate-x-1/2 xl:gap-[26px] md:gap-6 sm:gap-4 gap-2.5 w-full px-7">
 					<Image
 						src="/images/design-pro/1.png"
 						width={301}
 						height={652}
-						className="xl:w-[301px] xl:min-w-[301px] md:min-w-[225px] sm:min-w-[176px] min-w-[106px] h-auto"
-						style={{
-							filter:
-								"drop-shadow(0 2.197px 10.983px 2.746px rgba(28,43,51,0.03))",
-						}}
+						className="xl:min-w-[301px] md:min-w-[225px] sm:min-w-[176px] min-w-[106px] h-auto"
 						alt=""
 					/>
 					<Image
@@ -94,10 +95,6 @@ const HomeExpereinces = () => {
 						width={301}
 						height={652}
 						className="xl:min-w-[301px] md:min-w-[225px] sm:min-w-[176px] min-w-[106px] xl:mt-[120px] md:mt-[108px] sm:mt-[84px] mt-[51px] h-auto"
-						style={{
-							filter:
-								"drop-shadow(0 2.197px 10.983px 2.746px rgba(28,43,51,0.03))",
-						}}
 						alt=""
 					/>
 					<Image
@@ -105,10 +102,6 @@ const HomeExpereinces = () => {
 						width={301}
 						height={652}
 						className="xl:min-w-[301px] md:min-w-[225px] sm:min-w-[176px] min-w-[106px] h-auto"
-						style={{
-							filter:
-								"drop-shadow(0 2.197px 10.983px 2.746px rgba(28,43,51,0.03))",
-						}}
 						alt=""
 					/>
 					<Image
@@ -117,10 +110,6 @@ const HomeExpereinces = () => {
 						height={652}
 						ref={caseRef2}
 						className="xl:min-w-[301px] md:min-w-[225px] sm:min-w-[176px] min-w-[106px] xl:mt-[120px] md:mt-[108px] sm:mt-[84px] mt-[51px] h-auto"
-						style={{
-							filter:
-								"drop-shadow(0 2.197px 10.983px 2.746px rgba(28,43,51,0.03))",
-						}}
 						alt=""
 					/>
 					<Image
@@ -128,10 +117,6 @@ const HomeExpereinces = () => {
 						width={301}
 						height={652}
 						className="xl:min-w-[301px] md:min-w-[225px] sm:min-w-[176px] min-w-[106px] h-auto"
-						style={{
-							filter:
-								"drop-shadow(0 2.197px 10.983px 2.746px rgba(28,43,51,0.03))",
-						}}
 						alt=""
 					/>
 				</div>

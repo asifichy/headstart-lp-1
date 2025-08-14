@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-md: 769px;
-  --breakpoint-xl: 1441px;
+	--breakpoint-md: 48.0625rem;
+	--breakpoint-xl: 90.0625rem;
 
-  --color-footer-bg: rgba(24, 34, 48, 0.08);
-  --color-main: #182230;
-  --color-blue-40: #007AFF;
-  --color-gray-5: #F7F9FA;
+	--color-footer-bg: rgba(24, 34, 48, 0.08);
+	--color-main: #182230;
+	--color-blue-40: #007aff;
+	--color-gray-5: #f7f9fa;
 }
 
 body {
-  color: var(--color-main);
+	color: var(--color-main);
 }
 
 @layer utilities {
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 }
