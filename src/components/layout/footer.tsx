@@ -50,7 +50,7 @@ const Footer = () => {
 								<Link
 									target="_blank"
 									href={footerLink.href}
-									aria-label={footerLink.label + "right"}>
+									aria-label={footerLink.label + "left"}>
 									<Image
 										src={footerLink.icon}
 										alt={footerLink.label}
