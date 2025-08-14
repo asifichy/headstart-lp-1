@@ -4,24 +4,22 @@
   --breakpoint-md: 769px;
   --breakpoint-xl: 1441px;
 
-
   --color-footer-bg: rgba(24, 34, 48, 0.08);
   --color-main: #182230;
   --color-blue-40: #007AFF;
   --color-gray-5: #F7F9FA;
 }
 
-
-body{
+body {
   color: var(--color-main);
 }
 
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-

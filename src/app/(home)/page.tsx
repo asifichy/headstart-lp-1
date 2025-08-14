@@ -5,6 +5,7 @@ import AiBrands from "./_components/ai-brands";
 import AiUi from "./_components/ai-ui";
 import HomeAd from "./_components/home-ad";
 import HomeServices from "./_components/home-services";
+import HomeExpereinces from "./_components/home-expreinces";
 
 const HomePage = () => {
 	return (
@@ -15,6 +16,7 @@ const HomePage = () => {
 				<AiBrands />
 				{/* <AiUi /> */}
 				<HomeServices />
+				<HomeExpereinces />
 				<HomeAd />
 				<section></section>
 			</main>
