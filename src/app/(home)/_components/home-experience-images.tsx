@@ -67,8 +67,8 @@ const HomeExperienceImages = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className="relative w-full  xl:mt-[120px] md:mt-[90px] my-20 overflow-hidden">
-			<div className="xl:h-[797px] md:h-[598px] sm:h-[467px] h-[230px] block relative w-full"></div>
+			className="relative w-full  xl:mt-[120px] md:mt-[90px] mt-20 overflow-hidden xl:mb-[-120px] md:mb-[-108px] sm:mb-[-84px] mb-[-51px]">
+			<div className="xl:h-[797px] md:h-[598px] sm:h-[467px] h-[281px] block relative w-full"></div>
 			<Image
 				src={"/images/design-pro/bg.png"}
 				fill
