@@ -14,7 +14,7 @@ const HomePage = () => {
 			<main className="w-full flex flex-col xl:gap-[200px] gap-[160px]">
 				<HomeHero />
 				<AiBrands />
-				{/* <AiUi /> */}
+				<AiUi />
 				<HomeServices />
 				<HomeExpereinces />
 				<HomeAd />

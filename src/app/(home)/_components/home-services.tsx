@@ -40,7 +40,7 @@ const HomeServices = () => {
 				onMouseLeave={onMouseLeave}
 				onMouseUp={onMouseUp}
 				onMouseMove={onMouseMove}
-				className=" w-full max-w-[1920px] xl:mt-[120px] md:mt-[90px] mt-20 mx-auto overflow-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none flex xl:gap-5 gap-[15px]">
+				className=" w-full xl:mt-[120px] md:mt-[90px] mt-20 mx-auto overflow-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none flex xl:gap-5 gap-[15px]">
 				{SLIDE_ITEMS.map((item) => (
 					<Image
 						src={item}
