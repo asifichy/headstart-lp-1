@@ -11,7 +11,7 @@ const SectionHeader = ({ title, description }: SectionHeaderProps) => {
 			<h2 className="xl:text-[80px] xl:tracking-[-1.6px] text-[60px] leading-[1.2] font-medium">
 				{title}
 			</h2>
-			<p className="xl:mt-5 md:mt-4 mt-12 xl:text-[21px] xl:text-[1.2] text-[20px] leading-[1.4] xl:truncate-[-0.42px] truncate-[-0.4px] font-medium">
+			<p className="xl:mt-5 md:mt-4 mt-12 xl:text-[21px] xl:text-[1.2] text-xl leading-[1.4] xl:truncate-[-0.42px] truncate-[-0.4px] font-medium">
 				{description}
 			</p>
 		</div>
