@@ -48,8 +48,10 @@ const AiUi = () => {
 					<Image
 						src={"/images/features/1.png"}
 						className="w-[75%] h-auto xl:mt-[100px] md:mt-[74px] sm:mt-[64px] mt-[72px]"
-						width={1000}
-						height={1000}
+						width={344}
+						height={544}
+						priority
+						fetchPriority="high"
 						alt=""
 					/>
 				</div>
@@ -61,8 +63,10 @@ const AiUi = () => {
 					<Image
 						src={"/images/features/2.png"}
 						className="w-[52%] h-auto xl:mt-[63px] xl:mb-4 md:mt-[54px] mt-12 md:mb-2 mb-1"
-						width={1000}
-						height={1000}
+						width={238}
+						height={515}
+						priority
+						fetchPriority="high"
 						alt=""
 					/>
 				</div>
@@ -70,8 +74,10 @@ const AiUi = () => {
 					<Image
 						src={"/images/features/3.png"}
 						className="w-[72%] h-auto xl:mb-[100px] md:mb-20 sm:mb-14 mb-[84px]"
-						width={1000}
-						height={1000}
+						width={330}
+						height={504}
+						priority
+						fetchPriority="high"
 						alt=""
 					/>
 					<p className="text-main/50 xl:text-[28px] text-[21px] font-medium leading-[1.2]">

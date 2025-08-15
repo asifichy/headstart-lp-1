@@ -6,22 +6,23 @@ import Footer from "@/components/layout/footer";
 const helveticaNeu = localFont({
 	src: [
 		{
-			path: "./fonts/HelveticaNeueLight.otf",
+			path: "./fonts/HelveticaNeueLight.woff2",
 			weight: "400",
 			style: "normal",
 		},
 		{
-			path: "./fonts/HelveticaNeueMedium.otf",
+			path: "./fonts/HelveticaNeueMedium.woff2",
 			weight: "500",
 			style: "normal",
 		},
-		
+
 		{
-			path: "./fonts/HelveticaNeueBold.otf",
+			path: "./fonts/HelveticaNeueBold.woff2",
 			weight: "700",
 			style: "normal",
 		},
 	],
+	preload: true,
 });
 
 export const metadata: Metadata = {

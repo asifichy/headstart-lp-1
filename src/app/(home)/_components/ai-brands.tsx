@@ -46,7 +46,7 @@ const AiBrands = () => {
 						<div
 							key={item.img}
 							className={cn(
-								"relative hover:scale-[1.02] transition-transform duration-300 transform-origin-center hover:translate-y-1 x:minw-w-[320px] min-w-[244px] w-full flex-1 aspect-square bg-gray-5 xl:rounded-[40px] rounded-[30px]",
+								"relative hover:scale-[1.02] transition-transform duration-300 transform-origin-center hover:translate-y-1 x:min-w-[320px] min-w-[244px] w-full flex-1 aspect-square bg-gray-5 xl:rounded-[40px] rounded-[30px]",
 								"xl:first:ml-[100px] md:first:ml-[75px] first:ml-7",
 								"xl:last:mr-[100px] md:last:mr-[75px] last:mr-7"
 							)}>
@@ -55,7 +55,7 @@ const AiBrands = () => {
 								width={172}
 								height={172}
 								className={cn(
-									"absolute left-1/2 -translate-x-1/2 xl:top-20 top-[60px]  xl:w-[130px] aspect-square w-[97px]"
+									"absolute left-1/2 -translate-x-1/2 top-0 object-contain xl:h-[calc(100%-56px)] h-[calc(100%-48px)] xl:w-1/2 w-[45%] object-center"
 								)}
 								alt={item.title}
 							/>

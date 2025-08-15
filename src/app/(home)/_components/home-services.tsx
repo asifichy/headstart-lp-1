@@ -41,7 +41,7 @@ const HomeServices = () => {
 				onMouseUp={onMouseUp}
 				onMouseMove={onMouseMove}
 				className=" w-full xl:mt-[120px] md:mt-[90px] mt-20 mx-auto overflow-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none flex xl:gap-5 gap-[15px]">
-				{SLIDE_ITEMS.map((item) => (
+				{SLIDE_ITEMS.map((item, index) => (
 					<Image
 						src={item}
 						key={item + "le"}
@@ -52,6 +52,9 @@ const HomeServices = () => {
 							"xl:first:ml-[100px] md:first:ml-[75px] first:ml-7",
 							"xl:last:mr-[100px] md:last:mr-[75px] last:mr-7"
 						)}
+						{...(index < 3
+							? { priority: true, fetchPriority: "high" }
+							: { loading: "lazy" })}
 						alt=""
 					/>
 				))}

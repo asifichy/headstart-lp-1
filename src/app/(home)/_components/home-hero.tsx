@@ -1,12 +1,17 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import HomeHeroSlider from "./home-hero-slider";
+import dynamic from "next/dynamic";
+
+const HomeHeroSlider = dynamic(() => import("./home-hero-slider"), {
+	ssr: false,
+});
 
 const HomeHero = () => {
 	return (
 		<section className="max-w-[1920px] w-full mx-auto xl:px-[100px] md:px-[75px] px-7 xl:mt-[140px] md:mt-[115px] mt-7">
-			<div className="flex justify-between items-center max-lg:flex-col md:gap-8 gap-20">
+			<div className="flex justify-between items-center max-lg:flex-col xl:gap-20 md:gap-14 gap-20">
 				<div className="flex-1 max-lg:order-2">
 					<Link
 						href="/"
