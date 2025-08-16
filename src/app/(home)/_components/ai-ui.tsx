@@ -1,32 +1,24 @@
 "use client";
 
 import SectionHeader from "@/components/section/section-heder";
+import { useDraggableSlider } from "@/hooks/use-draggable-slider";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React from "react";
 
 const AiUi = () => {
-	const scrollRef = useRef<HTMLDivElement | null>(null);
-	const [isDown, setIsDown] = useState(false);
-	const [startX, setStartX] = useState(0);
-	const [scrollLeft, setScrollLeft] = useState(0);
-
-	const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!scrollRef.current) return;
-		setIsDown(true);
-		setStartX(e.pageX - scrollRef.current.offsetLeft);
-		setScrollLeft(scrollRef.current.scrollLeft);
-	};
-
-	const onMouseLeave = () => setIsDown(false);
-	const onMouseUp = () => setIsDown(false);
-
-	const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!isDown || !scrollRef.current) return;
-		e.preventDefault();
-		const x = e.pageX - scrollRef.current.offsetLeft;
-		const walk = (x - startX) * 1; // scroll speed multiplier
-		scrollRef.current.scrollLeft = scrollLeft - walk;
-	};
+	const {
+		scrollContainerRef,
+		isDragging,
+		handleClick,
+		handleMouseDown,
+		handleMouseLeave,
+		handleMouseMove,
+		handleMouseUp,
+		handleTouchEnd,
+		handleTouchMove,
+		handleTouchStart,
+	} = useDraggableSlider();
 	return (
 		<section className="w-full">
 			<SectionHeader
@@ -34,12 +26,22 @@ const AiUi = () => {
 				description="Everything you need for a world-class AI-native experience."
 			/>
 			<div
-				ref={scrollRef}
-				onMouseDown={onMouseDown}
-				onMouseLeave={onMouseLeave}
-				onMouseUp={onMouseUp}
-				onMouseMove={onMouseMove}
-				className="flex sm:items-stretch max-sm:flex-col max-sm:px-7 xl:gap-[45px] md:gap-8 sm:gap-4 gap-[63px] w-full max-w-[1920px] mx-auto xl:mt-[120px] md:mt-[90px] mt-20 overflow-x-auto scrollbar-hide">
+				ref={scrollContainerRef}
+				onMouseDown={handleMouseDown}
+				onMouseLeave={handleMouseLeave}
+				onMouseUp={handleMouseUp}
+				onMouseMove={handleMouseMove}
+				onClick={handleClick}
+				onTouchStart={handleTouchStart}
+				onTouchMove={handleTouchMove}
+				onTouchEnd={handleTouchEnd}
+				style={{
+					scrollSnapType: isDragging ? "none" : "x proximity",
+				}}
+				className={cn(
+					"flex sm:items-stretch max-sm:flex-col max-sm:px-7 xl:gap-[45px] md:gap-8 sm:gap-4 gap-[63px] w-full max-w-[1920px] mx-auto xl:mt-[120px] md:mt-[90px] mt-20 overflow-x-auto scrollbar-hide",
+					isDragging ? "cursor-grabbing" : "cursor-grab"
+				)}>
 				<div className="xl:p-9 xl:pb-0 md:p-7 md:pb-0 px-4 pt-7 bg-gray-5 rounded-4xl pb-0 flex-1 sm:min-w-[374px] flex flex-col justify-between items-center xl:ml-[120px] md:ml-[90px] sm:ml-7">
 					<p className="text-main/50 xl:text-[28px] text-[21px] font-medium leading-[1.2]">
 						<span className="text-main ">Production-Grade:</span> Every pixel is
@@ -47,7 +49,7 @@ const AiUi = () => {
 					</p>
 					<Image
 						src={"/images/features/1.png"}
-						className="w-[75%] h-auto xl:mt-[100px] md:mt-[74px] sm:mt-[64px] mt-[72px]"
+						className="xl:w-[386px] w-[289.785px] h-auto xl:mt-[100px] md:mt-[74px] sm:mt-[64px] mt-[72px]"
 						width={344}
 						height={544}
 						priority
@@ -62,7 +64,7 @@ const AiUi = () => {
 					</p>
 					<Image
 						src={"/images/features/2.png"}
-						className="w-[52%] h-auto xl:mt-[63px] xl:mb-4 md:mt-[54px] mt-12 md:mb-2 mb-1"
+						className="xl:w-[271px] w-[203px] h-auto xl:mt-[63px] xl:mb-4 md:mt-[54px] mt-12 md:mb-2 mb-1"
 						width={238}
 						height={515}
 						priority
@@ -73,7 +75,7 @@ const AiUi = () => {
 				<div className="xl:p-9 xl:pt-0  md:p-7 md:pt-0 px-4 pb-7 bg-gray-5 rounded-4xl flex-1 sm:min-w-[374px] flex flex-col justify-between items-center xl:mr-[120px] md:mr-[90px] sm:mr-7">
 					<Image
 						src={"/images/features/3.png"}
-						className="w-[72%] h-auto xl:mb-[100px] md:mb-20 sm:mb-14 mb-[84px]"
+						className="xl:w-[386px] w-[289px] h-auto xl:mb-[100px] md:mb-20 sm:mb-14 mb-[84px]"
 						width={330}
 						height={504}
 						priority

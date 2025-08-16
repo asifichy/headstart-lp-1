@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
-@theme {
-	--breakpoint-md: 48.0625rem;
-	--breakpoint-xl: 90.0625rem;
+@theme inline {
+	--breakpoint-*: initial;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 769px;
+	--breakpoint-lg: 1141px;
+	--breakpoint-xl: 1441px;
 
 	--color-footer-bg: rgba(24, 34, 48, 0.08);
 	--color-main: #182230;
@@ -10,7 +13,7 @@
 	--color-gray-5: #f7f9fa;
 }
 
-html {
+html{
 	font-size: 16px;
 }
 
@@ -18,12 +21,10 @@ body {
 	color: var(--color-main);
 }
 
-@layer utilities {
-	.scrollbar-hide::-webkit-scrollbar {
-		display: none;
-	}
-	.scrollbar-hide {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
-	}
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }

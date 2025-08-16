@@ -13,11 +13,11 @@ const HomeHeroSlider = () => {
 		<div className="max-lg:order-1 max-lg:w-full">
 			<Link
 				href="/"
-				className="mb-[60px] inline-block"
+				className="mb-[60px] inline-block lg:hidden w-max"
 				aria-label="Headstar">
 				<Image
 					src="/images/logo-with-name.svg"
-					className="h-[42px] w-auto lg:hidden"
+					className="h-[42px] w-auto"
 					height={42}
 					width={184}
 					alt="Headstar"

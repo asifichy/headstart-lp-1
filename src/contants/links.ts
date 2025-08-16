@@ -28,21 +28,21 @@ export const SOCIAL_LINKS = [
 	{
 		label: "Instagram",
 		icon: "/images/socials/instagram.svg",
-		href: "https://www.instagram.com/",
+		href: " https://www.instagram.com/use_headstart",
 	},
 	{
 		label: "Behance",
 		icon: "/images/socials/behance.svg",
-		href: "https://www.behance.com/",
+		href: "https://www.behance.net/headstartux",
 	},
 	{
 		label: "Pinterest",
 		icon: "/images/socials/pinterest.svg",
-		href: "https://www.pinterest.com/",
+		href: "https://in.pinterest.com/headstartux/",
 	},
 	{
 		label: "Dribbble",
 		icon: "/images/socials/dribbble.svg",
-		href: "https://www.dribbble.com/",
+		href: "https://dribbble.com/headstart",
 	},
 ];

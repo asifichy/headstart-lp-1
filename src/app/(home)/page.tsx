@@ -11,7 +11,7 @@ const HomePage = () => {
 	return (
 		<>
 			<TopText />
-			<main className="w-full flex flex-col xl:gap-[200px] gap-[160px]">
+			<main className="w-full flex flex-col xl:gap-[200px] md:gap-[150px] sm:gap-[140px] gap-[160px]">
 				<HomeHero />
 				<AiBrands />
 				<AiUi />

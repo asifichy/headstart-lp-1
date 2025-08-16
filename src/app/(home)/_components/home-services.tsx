@@ -1,33 +1,24 @@
 "use client";
 import SectionHeader from "@/components/section/section-heder";
 import { SLIDE_ITEMS } from "@/contants/slides";
+import { useDraggableSlider } from "@/hooks/use-draggable-slider";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React from "react";
 
 const HomeServices = () => {
-	const scrollRef = useRef<HTMLDivElement | null>(null);
-	const [isDown, setIsDown] = useState(false);
-	const [startX, setStartX] = useState(0);
-	const [scrollLeft, setScrollLeft] = useState(0);
-
-	const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!scrollRef.current) return;
-		setIsDown(true);
-		setStartX(e.pageX - scrollRef.current.offsetLeft);
-		setScrollLeft(scrollRef.current.scrollLeft);
-	};
-
-	const onMouseLeave = () => setIsDown(false);
-	const onMouseUp = () => setIsDown(false);
-
-	const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!isDown || !scrollRef.current) return;
-		e.preventDefault();
-		const x = e.pageX - scrollRef.current.offsetLeft;
-		const walk = (x - startX) * 1; // scroll speed multiplier
-		scrollRef.current.scrollLeft = scrollLeft - walk;
-	};
+	const {
+		scrollContainerRef,
+		isDragging,
+		handleClick,
+		handleMouseDown,
+		handleMouseLeave,
+		handleMouseMove,
+		handleMouseUp,
+		handleTouchEnd,
+		handleTouchMove,
+		handleTouchStart,
+	} = useDraggableSlider();
 	return (
 		<section>
 			<SectionHeader
@@ -35,12 +26,22 @@ const HomeServices = () => {
 				description="All components are labeled, auto-layout ready, and fully Figma-native for mobile."
 			/>
 			<div
-				ref={scrollRef}
-				onMouseDown={onMouseDown}
-				onMouseLeave={onMouseLeave}
-				onMouseUp={onMouseUp}
-				onMouseMove={onMouseMove}
-				className=" w-full xl:mt-[120px] md:mt-[90px] mt-20 mx-auto overflow-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none flex xl:gap-5 gap-[15px]">
+				ref={scrollContainerRef}
+				onMouseDown={handleMouseDown}
+				onMouseLeave={handleMouseLeave}
+				onMouseUp={handleMouseUp}
+				onMouseMove={handleMouseMove}
+				onClick={handleClick}
+				onTouchStart={handleTouchStart}
+				onTouchMove={handleTouchMove}
+				onTouchEnd={handleTouchEnd}
+				style={{
+					scrollSnapType: isDragging ? "none" : "x proximity",
+				}}
+				className={cn(
+					" w-full xl:mt-[120px] md:mt-[90px] mt-20 mx-auto overflow-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none flex xl:gap-5 gap-[15px]",
+					isDragging ? "cursor-grabbing" : "cursor-grab"
+				)}>
 				{SLIDE_ITEMS.map((item, index) => (
 					<Image
 						src={item}

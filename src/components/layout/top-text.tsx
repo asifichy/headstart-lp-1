@@ -2,7 +2,7 @@ import React from "react";
 
 const TopText = () => {
 	return (
-		<div className="w-full text-center overflow-x-auto xl:text-lg font-bold md:text-sm text-xs py-2 bg-gray-5 text-nowrap scrollbar-hide">
+		<div className="w-full text-center overflow-x-auto xl:text-lg font-bold md:text-sm text-xs xl:py-3 py-2 bg-gray-5 text-nowrap scrollbar-hide">
 			<span
 				className="px-7"
 				style={{ letterSpacing: "-0.24px" }}>
