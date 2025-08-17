@@ -11,7 +11,7 @@ const HomeHeroSlider = dynamic(() => import("./home-hero-slider"), {
 const HomeHero = () => {
 	return (
 		<section className="max-w-[1920px] w-full mx-auto xl:px-[100px] md:px-[75px] px-7 xl:mt-[140px] md:mt-[105px] mt-7">
-			<div className="flex justify-between max-lg:flex-col xl:gap-[120px] lg:gap-[100px] gap-20">
+			<div className="flex justify-between max-lg:flex-col xl:gap-[230px] lg:gap-[150px] gap-20">
 				<div className="flex-1 max-lg:order-2">
 					<Link
 						href="/"
