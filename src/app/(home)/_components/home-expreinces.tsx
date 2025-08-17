@@ -8,7 +8,7 @@ const HomeExperienceImages = dynamic(() => import("./home-experience-images"), {
 });
 const HomeExpereinces = () => {
 	return (
-		<section>
+		<section className="z-10 relative">
 			<SectionHeader
 				title="Design Pro AI Experiences Instantly"
 				description="See how designers craft stunning AI experiences with our kit."

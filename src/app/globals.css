@@ -12,9 +12,19 @@
 	--color-main: #182230;
 	--color-blue-40: #007aff;
 	--color-gray-5: #f7f9fa;
+
+	
+	@keyframes marquee {
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(-100%);
+		} 
+	}
 }
 
-html{
+html {
 	font-size: 16px;
 }
 
@@ -28,4 +38,8 @@ body {
 .scrollbar-hide {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+}
+
+.image-shadow {
+	filter: drop-shadow(0 2.811px 14.057px rgba(28, 43, 51, 0.03));
 }

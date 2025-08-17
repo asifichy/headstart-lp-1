@@ -54,7 +54,7 @@ const AiUi = () => {
 					</p>
 					<Image
 						src={"/images/features/1.png"}
-						className="xl:w-[386px] w-[289.785px] h-auto xl:mt-[100px] md:mt-[74px] sm:mt-[64px] mt-[72px]"
+						className="xl:w-[401.5px] w-[301.62px] h-auto xl:mt-[100px] md:mt-[74px] sm:mt-[64px] mt-[72px]"
 						width={344}
 						height={544}
 						priority
@@ -69,7 +69,7 @@ const AiUi = () => {
 					</p>
 					<Image
 						src={"/images/features/2.png"}
-						className="xl:w-[271px] w-[203px] h-auto xl:mt-[63px] xl:mb-4 md:mt-[54px] mt-12 md:mb-2 mb-1"
+						className="xl:w-[282.9px] w-[212.18px] h-auto xl:mt-[63px] xl:mb-4 md:mt-[54px] mt-12 md:mb-2 mb-1"
 						width={238}
 						height={515}
 						priority
@@ -80,7 +80,7 @@ const AiUi = () => {
 				<div className="xl:p-9 xl:pt-0  md:p-7 md:pt-0 px-4 pb-7 bg-gray-5 rounded-4xl flex-1 sm:min-w-[374px] flex flex-col justify-between items-center xl:mr-[120px] md:mr-[90px] sm:mr-7">
 					<Image
 						src={"/images/features/3.png"}
-						className="xl:w-[386px] w-[289px] h-auto xl:mb-[100px] md:mb-20 sm:mb-14 mb-[84px]"
+						className="xl:w-[401.5px] w-[301.62px] h-auto xl:mb-[100px] md:mb-20 sm:mb-14 mb-[84px]"
 						width={330}
 						height={504}
 						priority
