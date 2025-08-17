@@ -1,8 +1,8 @@
 import React from "react";
 
 interface SectionHeaderProps {
-	title: string;
-	description: string;
+	title: React.ReactNode;
+	description: React.ReactNode;
 }
 
 const SectionHeader = ({ title, description }: SectionHeaderProps) => {

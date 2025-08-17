@@ -28,7 +28,7 @@ const HomeHero = () => {
 					<h1 className="font-medium xl:text-[100px] md:leading-[normal] md:text-[75px] text-[64px] leading-[68px] xl:max-w-[804px] md:max-w-[603px] max-w-[570px] xl:mt-20 md:mt-[60px] mt-0 xl:tracking-[-2px] md:tracking-[-1.5px] tracking-[-1.28px]">
 						Design AI Like the Best in the World
 					</h1>
-					<p className="xl:max-w-[844px] md:max-w-[603px] xl:mt-[60px] md:mt-[45px] mt-12 xl:text-[28px] xl:leading-[1.4] text-xl tracking-[-0.4px] font-medium">
+					<p className="xl:max-w-[844px] md:max-w-[603px] xs:max-w-full max-w-[372px] xl:mt-[60px] md:mt-[45px] mt-12 xl:text-[28px] xl:leading-[1.4] text-xl tracking-[-0.4px] font-medium">
 						120 premium AI UI cards inspired by ChatGPT, Copilot, Gemini & Grok
 						- production-ready, mobile-first, and Figma-native.
 					</p>

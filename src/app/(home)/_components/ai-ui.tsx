@@ -22,7 +22,12 @@ const AiUi = () => {
 	return (
 		<section className="w-full">
 			<SectionHeader
-				title="AI UI, Done Right"
+				title={
+					<>
+						AI UI,
+						<br className="sm:hidden" /> Done Right
+					</>
+				}
 				description="Everything you need for a world-class AI-native experience."
 			/>
 			<div

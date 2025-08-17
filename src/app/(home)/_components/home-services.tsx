@@ -22,7 +22,12 @@ const HomeServices = () => {
 	return (
 		<section>
 			<SectionHeader
-				title="120 AI UI Cards. Infinite Possibilities."
+				title={
+					<>
+						120 AI <br className="sm:hidden" /> UI Cards.
+						<br className="sm:hidden" /> Infinite Possibilities.
+					</>
+				}
 				description="All components are labeled, auto-layout ready, and fully Figma-native for mobile."
 			/>
 			<div
