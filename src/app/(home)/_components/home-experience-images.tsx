@@ -74,7 +74,7 @@ const HomeExperienceImages = () => {
 				priority
 				width={1540}
 				height={587}
-				className="absolute left-1/2 -translate-x-1/2 xl:top-[93px] md:top-[67.5px] xl:w-[1540px] xl:h-[587px] md:w-[1155px] md:h-[440.25px]"
+				className="absolute left-1/2 -translate-x-1/2 xl:top-[93px] md:top-[67.5px] top-0 xl:w-[1540px] xl:h-[587px] md:w-[1155px] md:h-[440.25px] h-[281px]"
 				alt="bg"
 			/>
 			<div className="flex bg-transparent items-start justify-center absolute top-0 h-full bottom-0 left-1/2 -translate-x-1/2 xl:gap-[26px] md:gap-6 sm:gap-4 gap-2.5 w-full px-7">
