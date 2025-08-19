@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "export": "next build",
+    "deploy:s3": "aws s3 sync ./out s3://$S3_BUCKET --delete",
     "start": "next start",
     "lint": "next lint"
   },
