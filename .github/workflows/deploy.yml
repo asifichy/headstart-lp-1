@@ -2,13 +2,13 @@ name: Deploy to S3 + CloudFront
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
     inputs:
       ref:
         description: "Branch, commit to deploy (e.g. main)"
         required: false
-        default: "main"
+        default: "master"
         type: string
 
 env:
