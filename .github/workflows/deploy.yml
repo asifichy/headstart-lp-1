@@ -33,20 +33,58 @@ jobs:
         if: github.event_name != 'workflow_dispatch'
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Bun
+        if: hashFiles('bun.lock') != ''
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies (bun)
+        if: hashFiles('bun.lock') != ''
+        run: bun install --frozen-lockfile
+
+      - name: Build (static export) [bun]
+        if: hashFiles('bun.lock') != ''
+        run: bun run build
+
+      - name: Setup Node.js (yarn)
+        if: hashFiles('yarn.lock') != ''
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
 
-      - name: Enable Corepack
+      - name: Enable Corepack (yarn)
+        if: hashFiles('yarn.lock') != ''
         run: corepack enable
 
-      - name: Install dependencies
+      - name: Install dependencies (yarn)
+        if: hashFiles('yarn.lock') != ''
         run: yarn install --frozen-lockfile
 
-      - name: Build (static export)
+      - name: Build (static export) [yarn]
+        if: hashFiles('yarn.lock') != ''
         run: yarn build
+
+      - name: Setup Node.js (npm)
+        if: hashFiles('bun.lock') == '' && hashFiles('yarn.lock') == ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies (npm)
+        if: hashFiles('bun.lock') == '' && hashFiles('yarn.lock') == ''
+        run: npm install
+
+      - name: Build (static export) [npm]
+        if: hashFiles('bun.lock') == '' && hashFiles('yarn.lock') == ''
+        run: npm run build
+
+      - name: Upload static site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: out-static
+          path: out
+          if-no-files-found: error
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
