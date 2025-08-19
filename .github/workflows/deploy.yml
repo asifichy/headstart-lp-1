@@ -110,11 +110,12 @@ jobs:
 
       - name: Upload HTML with immediate revalidation
         run: |
-          # Ensure HTML gets lowest TTL to allow quick rollouts
-          find out -type f -name "*.html" -print0 | xargs -0 -I {} \
-            aws s3 cp "{}" "s3://$S3_BUCKET/{}" \
-              --cache-control "public,max-age=0,must-revalidate" \
-              --content-type "text/html; charset=utf-8"
+          # Copy HTML relative to ./out so keys are rooted (no leading "out/")
+          aws s3 cp ./out s3://$S3_BUCKET/ \
+            --recursive \
+            --exclude "*" --include "*.html" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "text/html; charset=utf-8"
 
       - name: Create CloudFront invalidation
         run: |
