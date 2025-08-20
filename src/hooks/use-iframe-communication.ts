@@ -9,7 +9,7 @@ interface UseIframeCommunicationProps {
 export const useIframeCommunication = ({
   isOpen,
   onClose,
-  allowedOrigins = ['lemonsqueezy.com', 'useheadstart.com']
+  allowedOrigins = ['lemonsqueezy.com', 'useheadstart.com', 'headstart.lemonsqueezy.com']
 }: UseIframeCommunicationProps) => {
 
   const handleMessage = useCallback((event: MessageEvent) => {

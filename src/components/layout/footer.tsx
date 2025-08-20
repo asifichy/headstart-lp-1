@@ -39,7 +39,7 @@ const Footer = () => {
 						return (
 							<li key={footerLink.href}>
 								{isBuyKit ? (
-									<button onClick={handleClick} className="cursor-pointer">
+									<button onClick={handleClick} className="cursor-pointer xl:text-lg text-sm text-main hover:text-blue-40 transition-colors duration-300 ease-in-out">
 										{footerLink.label}
 									</button>
 								) : (

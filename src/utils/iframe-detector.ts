@@ -66,7 +66,7 @@ export class IframeDetector {
       this.lastActivity = Date.now();
 
       // Check if message is from Lemon Squeezy
-      if (event.origin.includes('lemonsqueezy.com') || event.origin.includes('useheadstart.com')) {
+      if (event.origin.includes('lemonsqueezy.com') || event.origin.includes('useheadstart.com') || event.origin.includes('headstart.lemonsqueezy.com')) {
         if (event.data && typeof event.data === 'object') {
           const { type, action, event: eventType } = event.data;
 

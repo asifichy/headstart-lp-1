@@ -13,7 +13,7 @@ interface CheckoutOverlayProps {
 const CheckoutOverlay = ({
   isOpen,
   onClose,
-  checkoutUrl = "https://useheadstart.com/buy/afa4da43-7139-416a-a989-921caf0f5e85?embed=1&media=0",
+  checkoutUrl = "https://headstart.lemonsqueezy.com/buy/afa4da43-7139-416a-a989-921caf0f5e85?embed=1&media=0",
 }: CheckoutOverlayProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
