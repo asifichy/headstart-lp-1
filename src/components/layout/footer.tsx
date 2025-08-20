@@ -1,14 +1,26 @@
+"use client";
+
 import {
 	FOOTER_SECODARY_LINKS,
 	MAIN_FOOTER_LINKS,
-	SOCIAL_LINKS,
+	SOCIAL_LINKS
 } from "@/contants/links";
+import { useCheckoutOverlay } from "@/hooks/use-checkout-overlay";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import CheckoutOverlay from "../ui/checkout-overlay";
 
 const Footer = () => {
+
+	const { isOpen, openOverlay, closeOverlay } = useCheckoutOverlay();
+
+	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		openOverlay();
+	};
+
+
 	return (
 		<footer className="xl:pt-[106px] pt-20 xl:pb-20 pb-[60px] bg-footer-bg xl:px-[84px] md:px-[63px] px-7">
 			<div className="flex md:items-center items-start justify-between flex-col sm:flex-row gap-x-4 gap-y-8">
@@ -22,19 +34,29 @@ const Footer = () => {
 					/>
 				</Link>
 				<ul className="flex items-center lg:gap-[71px] gap-12">
-					{MAIN_FOOTER_LINKS.map((footerLink) => (
-						<li key={footerLink.href}>
-							<Link
-								className={cn(
-									"xl:text-lg text-sm text-main",
-									"transition-colors duration-300 ease-in-out",
-									"hover:text-blue-40"
+					{MAIN_FOOTER_LINKS.map((footerLink) => {
+						const isBuyKit = footerLink.href === "/buy-kit";
+						return (
+							<li key={footerLink.href}>
+								{isBuyKit ? (
+									<button onClick={handleClick} className="cursor-pointer">
+										{footerLink.label}
+									</button>
+								) : (
+									<Link
+										target={footerLink.external ? "_blank" : "_self"}
+										className={cn(
+											"xl:text-lg text-sm text-main",
+											"transition-colors duration-300 ease-in-out",
+											"hover:text-blue-40"
+										)}
+										href={footerLink.href}>
+										{footerLink.label}
+									</Link>
 								)}
-								href={footerLink.href}>
-								{footerLink.label}
-							</Link>
-						</li>
-					))}
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 			<div className="flex items-center justify-between xl:mt-[72px]  mt-14">
@@ -101,6 +123,11 @@ const Footer = () => {
 					</ul>
 				</div>
 			</div>
+
+			<CheckoutOverlay
+				isOpen={isOpen}
+				onClose={closeOverlay}
+			/>
 		</footer>
 	);
 };
