@@ -1,15 +1,24 @@
-export const MAIN_FOOTER_LINKS = [
+export type FooterLink = {
+	href: string;
+	label: string;
+	external?: boolean;
+};
+
+export const MAIN_FOOTER_LINKS: FooterLink[] = [
 	{
 		href: "/",
 		label: "Home",
+		external: false,
 	},
 	{
 		href: "/buy-kit",
 		label: "Buy Kit",
+		external: false,
 	},
 	{
-		href: "/preview-kit",
+		href: "https://www.figma.com/design/UqJoZJUp7FZH6BcAPvMyoA/Headstart-AI-Master-Kit--Preview-?node-id=0-1&p=f&t=fM5FFgW6HjpUmfEf-0",
 		label: "Preview Kit",
+		external: true,
 	},
 ];
 

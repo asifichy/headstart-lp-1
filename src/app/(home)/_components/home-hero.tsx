@@ -1,25 +1,22 @@
 "use client";
+
+import Button from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import dynamic from "next/dynamic";
-
-const HomeHeroSlider = dynamic(() => import("./home-hero-slider"), {
-	ssr: false,
-});
+import HomeHeroSlider from "./home-hero-slider";
 
 const HomeHero = () => {
 	return (
 		<section className="max-w-[1920px] w-full mx-auto xl:px-[100px] md:px-[75px] px-7 xl:mt-[140px] md:mt-[105px] mt-7">
-			<div className="flex justify-between max-lg:flex-col xl:gap-[230px] lg:gap-[150px] gap-20">
-				<div className="flex-1 max-lg:order-2">
+			<div className="flex justify-between max-lg:flex-col xl:gap-[230px] lg:gap-[150px] gap-[48px]">
+				<div className="flex-1">
 					<Link
 						href="/"
 						aria-label="Headstar"
-						className="w-max inline-block">
+						className="w-max inline-block mb-[80px] md:mb-0">
 						<Image
 							src="/images/logo-with-name.svg"
-							className="h-[42px] w-[184px] max-lg:hidden"
+							className="h-[32px] xl:h-[42px] w-[138px] xl:w-[184px] "
 							height={42}
 							width={184}
 							alt="Headstar"
@@ -32,22 +29,32 @@ const HomeHero = () => {
 						120 premium AI UI cards inspired by ChatGPT, Copilot, Gemini & Grok
 						- production-ready, mobile-first, and Figma-native.
 					</p>
-					<div className="flex flex-wrap xl:mt-[60px] md:mt-[45px] mt-12 xl:gap-5 sm:gap-4 gap-[18px]">
-						<button className="xl:p-6 p-[18px] group bg-blue-40 cursor-pointer text-nowrap flex items-center justify-center text-white rounded-full font-bold xl:text-2xl md:text-lg text-base leading-[1.25] relative overflow-hidden">
-							<div className="h-[160px] top-1/2 -translate-y-1/2 w-10 bg-[#ffffff48] blur-[10px] from-white/10 via-white/50 to-white/10 absolute -rotate-45 -left-[70px] group-hover:left-[150%] duration-1200  delay-50" />
-							<span>Buy the Kit - $29</span>
-						</button>
-						<button className="xl:p-6 p-[18px] group bg-footer-bg cursor-pointer xl:w-[236.5px] md:w-[177.38px] w-[161.67px] flex items-center justify-center  rounded-full font-bold xl:text-2xl md:text-lg text-base leading-[1.25] relative overflow-hidden">
-							<div className="h-[160px] top-1/2 -translate-y-1/2 w-10 bg-[#ffffff48] blur-[10px] from-white/10 via-white/50 to-white/10 absolute -rotate-45 -left-[70px] group-hover:left-[150%] duration-1200  delay-50" />
 
-							<span>See the Kit</span>
-						</button>
+					<div className="hidden lg:block">
+						<ActionButton />
 					</div>
 				</div>
-				<HomeHeroSlider />
+
+				<div className="max-lg:w-full flex flex-col items-center sm:items-start lg:items-center">
+					<HomeHeroSlider />
+					<div className="lg:hidden flex justify-center w-full xs:w-auto">
+						<ActionButton />
+					</div>
+				</div>
+
 			</div>
 		</section>
 	);
 };
 
 export default HomeHero;
+
+
+const ActionButton = () => {
+	return (
+		<div className="grid grid-cols-2 xs:flex xl:mt-[60px] md:mt-[45px] mt-12 xl:gap-5 sm:gap-4 xs:gap-[18px] gap-3 w-full">
+			<Button variant="primary">Buy the Kit - $29</Button>
+			<Button variant="secondary">See the Kit</Button>
+		</div>
+	);
+};
