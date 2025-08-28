@@ -45,7 +45,7 @@ const Text = () => {
 		<span
 			className="px-7 text-transparent bg-clip-text bg-cover bg-center tracking-[-0.24px]"
 			style={{
-				backgroundImage: "url('/images/mesh-gradient.png')",
+				backgroundImage: "url('/images/mesh-gradient.webp')",
 				backgroundSize: "cover",
 				backgroundPosition: "center",
 				backgroundRepeat: "no-repeat"
