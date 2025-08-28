@@ -8,6 +8,7 @@ import HomeHeroSlider from "./home-hero-slider";
 const HomeHero = () => {
 	return (
 		<section className="max-w-[1920px] w-full mx-auto xl:px-[100px] md:px-[75px] px-7 xl:mt-[140px] md:mt-[105px] mt-7">
+
 			<div className="flex justify-between max-lg:flex-col xl:gap-[230px] lg:gap-[150px] gap-[48px]">
 				<div className="flex-1">
 					<Link
@@ -53,7 +54,7 @@ export default HomeHero;
 const ActionButton = () => {
 	return (
 		<div className="grid grid-cols-2 xs:flex xl:mt-[60px] md:mt-[45px] mt-12 xl:gap-5 sm:gap-4 xs:gap-[18px] gap-3 w-full">
-			<Button variant="primary">Buy the Kit - $29</Button>
+			<Button variant="primary">Buy the Kit - $49</Button>
 			<Button variant="secondary">See the Kit</Button>
 		</div>
 	);
