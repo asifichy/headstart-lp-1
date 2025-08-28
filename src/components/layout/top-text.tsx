@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 const TopText = () => {
 
@@ -5,16 +6,7 @@ const TopText = () => {
 		<div className="w-full text-center overflow-hidden xl:text-lg font-bold md:text-sm text-xs xl:py-3 py-2 bg-main">
 			{/* Desktop and tablet - normal text */}
 			<div className="hidden sm:block text-nowrap">
-				<span
-					className="px-7 text-transparent bg-clip-text bg-cover bg-center tracking-[-0.24px]"
-					style={{
-						backgroundImage: "url('/images/gg.jpg')",
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-						backgroundRepeat: "no-repeat"
-					}}>
-					<Text />
-				</span>
+				<Text />
 			</div>
 
 			{/* Mobile - marquee */}
@@ -38,20 +30,29 @@ const TopText = () => {
 
 
 const Text = () => {
-
-	const text = "Launch Promo: Get Headstart UI Kit for just $29 (use code: START20)";
+	const text = "Launch Promo: Get Headstart UI Kit for just $29 (use code: START20)";
 
 	return (
-		<span
-			className="px-7 text-transparent bg-clip-text bg-cover bg-center tracking-[-0.24px]"
-			style={{
-				backgroundImage: "url('/images/mesh-gradient.webp')",
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat"
-			}}>
-			{text}
-		</span>
+		<>
+			{/* Preload image with Next.js Image for optimization */}
+			<div className="hidden">
+				<Image
+					src="/images/mesh-gradient.webp"
+					alt=""
+					width={1}
+					height={1}
+					priority
+				/>
+			</div>
+			{/* Text with background image - server-side rendered */}
+			<span
+				className="px-7 text-transparent bg-clip-text bg-cover bg-right bg-no-repeat tracking-[-0.24px]"
+				style={{
+					backgroundImage: "url('/images/mesh-gradient.webp')"
+				}}>
+				{text}
+			</span>
+		</>
 	)
 }
 export default TopText;
