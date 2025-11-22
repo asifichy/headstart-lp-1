@@ -11,12 +11,12 @@ export const MAIN_FOOTER_LINKS: FooterLink[] = [
 		external: false,
 	},
 	{
-		href: "/buy-kit",
+		href: "https://headstart.lemonsqueezy.com/buy/31e66ad0-9c4e-4541-b553-d8781482affc",
 		label: "Buy Kit",
-		external: false,
+		external: true,
 	},
 	{
-		href: "https://www.figma.com/design/UqJoZJUp7FZH6BcAPvMyoA/Headstart-AI-Master-Kit--Preview-?node-id=0-1&p=f&t=fM5FFgW6HjpUmfEf-0",
+		href: "https://headstart.lemonsqueezy.com/buy/26a00f6b-e3ca-418d-b1ee-e93f6e21c234",
 		label: "Preview Kit",
 		external: true,
 	},

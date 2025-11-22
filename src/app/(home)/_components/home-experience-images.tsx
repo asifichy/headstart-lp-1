@@ -122,9 +122,9 @@ const HomeExperienceImages = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className="relative w-full xl:mt-[120px] md:mt-[90px] mt-20 z-10">
+			className="relative w-full xl:mt-[120px] md:mt-[90px] mt-20 z-10 overflow-hidden">
 			<Image
-				src={"/images/design-pro/bg.png"}
+				src={"/images/design-pro/bg.webp"}
 				priority
 				width={1540}
 				height={587}
@@ -140,7 +140,7 @@ const HomeExperienceImages = () => {
 						ref={scrollableRef}
 						className={cn("flex items-start h-auto xl:gap-[26px] md:gap-6 sm:gap-4 gap-2.5 px-7 overflow-x-auto scrollbar-hide", isOverflowing ? 'justify-start' : 'justify-center')}>
 						<Image
-							src="/images/design-pro/1.png"
+							src="/images/design-pro/1.webp"
 							width={301}
 							height={652}
 							priority
@@ -149,7 +149,7 @@ const HomeExperienceImages = () => {
 							alt=""
 						/>
 						<Image
-							src="/images/design-pro/2.png"
+							src="/images/design-pro/2.webp"
 							ref={caseRef1}
 							width={301}
 							height={652}
@@ -159,7 +159,7 @@ const HomeExperienceImages = () => {
 							alt=""
 						/>
 						<Image
-							src="/images/design-pro/3.png"
+							src="/images/design-pro/3.webp"
 							width={301}
 							height={652}
 							priority
@@ -168,7 +168,7 @@ const HomeExperienceImages = () => {
 							alt=""
 						/>
 						<Image
-							src="/images/design-pro/4.png"
+							src="/images/design-pro/4.webp"
 							width={301}
 							height={652}
 							priority
@@ -178,7 +178,7 @@ const HomeExperienceImages = () => {
 							alt=""
 						/>
 						<Image
-							src="/images/design-pro/5.png"
+							src="/images/design-pro/5.webp"
 							width={301}
 							height={652}
 							priority

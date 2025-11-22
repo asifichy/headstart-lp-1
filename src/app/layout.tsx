@@ -1,24 +1,39 @@
+import Footer from "@/components/layout/footer";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
-import Footer from "@/components/layout/footer";
 
-const helveticaNeu = localFont({
+const roobert = localFont({
 	src: [
 		{
-			path: "./fonts/HelveticaNeueLight.woff2",
+			path: "../../public/font/roobert/RoobertLight.ttf",
+			weight: "300",
+			style: "normal",
+		},
+		{
+			path: "../../public/font/roobert/RoobertRegular.ttf",
 			weight: "400",
 			style: "normal",
 		},
 		{
-			path: "./fonts/HelveticaNeueMedium.woff2",
+			path: "../../public/font/roobert/RoobertMedium.ttf",
 			weight: "500",
 			style: "normal",
 		},
-
 		{
-			path: "./fonts/HelveticaNeueBold.woff2",
+			path: "../../public/font/roobert/RoobertSemiBold.ttf",
+			weight: "600",
+			style: "normal",
+		},
+		{
+			path: "../../public/font/roobert/RoobertBold.ttf",
 			weight: "700",
+			style: "normal",
+		},
+		{
+			path: "../../public/font/roobert/RoobertHeavy.ttf",
+			weight: "800",
 			style: "normal",
 		},
 	],
@@ -37,9 +52,24 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${helveticaNeu.className} antialiased`}>
+			<body className={`${roobert.className} antialiased`}>
 				{children}
 				<Footer />
+
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=G-46QKB96LKK"
+					strategy="afterInteractive"
+				/>
+				<Script id="google-analytics" strategy="afterInteractive">
+					{`
+            window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+
+						gtag('config', 'G-46QKB96LKK');
+          `}
+				</Script>
+
 			</body>
 		</html>
 	);

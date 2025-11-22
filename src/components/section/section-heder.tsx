@@ -1,17 +1,19 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
 interface SectionHeaderProps {
 	title: React.ReactNode;
 	description: React.ReactNode;
+	classNames?: string;
 }
 
-const SectionHeader = ({ title, description }: SectionHeaderProps) => {
+const SectionHeader = ({ title, description, classNames }: SectionHeaderProps) => {
 	return (
-		<div className="xl:px-[100px] md:px-[75px] px-7 text-center">
-			<h2 className="xl:text-[80px] xl:tracking-[-1.6px] text-[60px] leading-[1.2] font-medium">
+		<div className={cn("xl:px-[100px] md:px-[75px] px-7 text-center", classNames)}>
+			<h2 className="xl:text-[72px] xl:tracking-[-1.6px] md:text-[54px] md:leading-[1.2] text-[48px] leading-[1.1] font-normal">
 				{title}
 			</h2>
-			<p className="xl:mt-5 md:mt-4 mt-12 xl:text-[28px] xl:text-[1.2] xl:tracking-[-0.56px] text-xl leading-[1.4] xl:truncate-[-0.42px] truncate-[-0.4px] font-medium">
+			<p className="xl:text-[72px] xl:tracking-[-1.6px] md:text-[54px] md:leading-[1.2] text-[48px] leading-[1.1] text-gray-5 font-normal">
 				{description}
 			</p>
 		</div>

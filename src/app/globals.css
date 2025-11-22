@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
 	--breakpoint-*: initial;
@@ -9,18 +12,42 @@
 	--breakpoint-xl: 1550px;
 
 	--color-footer-bg: rgba(24, 34, 48, 0.08);
-	--color-main: #182230;
+	--color-main: #313647;
 	--color-blue-40: #007aff;
-	--color-gray-5: #f7f9fa;
+	--color-gray-5: #A9B3D3;
 
-	
 	@keyframes marquee {
 		0% {
 			transform: translateX(0%);
 		}
+
 		100% {
 			transform: translateX(-100%);
-		} 
+		}
+	}
+
+	--animate-marquee: marquee var(--duration) infinite linear;
+
+	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+
+	@keyframes marquee-vertical {
+		from {
+			transform: translateY(0);
+		}
+
+		to {
+			transform: translateY(calc(-100% - var(--gap)));
+		}
 	}
 }
 
@@ -35,11 +62,29 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
 	display: none;
 }
+
 .scrollbar-hide {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
 
 .image-shadow {
-	filter: drop-shadow(0 2.811px 14.057px rgba(28, 43, 51, 0.03));
+	filter: drop-shadow(0 3.748px 18.742px 4.686px rgba(28, 43, 51, 0.03));
+}
+
+.image-shadow-2 {
+	filter: drop-shadow(0 4.815px 24.074px 6.018px rgba(28, 43, 51, 0.03)) !important;
+	/* box-shadow: 0 4.815px 24.074px 6.018px rgba(28, 43, 51, 0.03); */
+}
+
+.pb-header {
+	@apply pb-20 md:pb-[60px] xl:pb-20
+}
+
+.pt-header {
+	@apply pt-20 md:pt-[60px] xl:pt-20
+}
+
+.bg-grad {
+	background: linear-gradient(90deg, #F4E7FF 0%, #FDDDDE 100%);
 }
