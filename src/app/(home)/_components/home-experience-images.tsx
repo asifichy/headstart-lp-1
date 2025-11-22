@@ -123,14 +123,14 @@ const HomeExperienceImages = () => {
 		<div
 			ref={sectionRef}
 			className="relative w-full xl:mt-[120px] md:mt-[90px] mt-20 z-10 overflow-hidden">
-			<Image
+			{/* <Image
 				src={"/images/design-pro/bg.webp"}
 				priority
 				width={1540}
 				height={587}
 				className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-auto xl:h-[1080px] md:h-[1069px] sm:h-[1003px] h-[809px]"
 				alt="bg"
-			/>
+			/> */}
 			<div className="xl:h-[797px] md:h-[598px] sm:h-[467px] h-[281px] block relative w-full">
 				<div
 					ref={containerRef}
