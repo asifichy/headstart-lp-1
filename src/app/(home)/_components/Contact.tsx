@@ -6,13 +6,34 @@ const Contact = () => {
 
   const [isSubmitted, setSubmitted] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const email = formData.get("email") as string;
-    console.log(email);
-    setSubmitted(true);
-    e.currentTarget.reset();
+
+    try {
+      // Submit to Formspree
+      const response = await fetch('https://formspree.io/f/xwpzzyrr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, message: `Contact form submitted from Headstart: ${email}` }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        if (form) {
+          form.reset();
+        }
+      } else {
+        throw new Error('Form submission failed, please try again later.');
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+
   }
 
   return (

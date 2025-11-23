@@ -28,11 +28,6 @@ const HomeExperienceImages = () => {
 		if (scrollableRef.current) {
 			const scrollable = scrollableRef.current;
 			const isOverflow = scrollable.scrollWidth > scrollable.clientWidth;
-			console.log('Overflow check:', {
-				scrollWidth: scrollable.scrollWidth,
-				clientWidth: scrollable.clientWidth,
-				isOverflow
-			});
 			setIsOverflowing(isOverflow);
 		}
 	};
