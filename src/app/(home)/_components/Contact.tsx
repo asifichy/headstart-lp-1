@@ -1,9 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
-  const [email, setEmail] = useState("");
+
+  const [isSubmitted, setSubmitted] = useState<boolean>(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    console.log(email);
+    setSubmitted(true);
+    e.currentTarget.reset();
+  }
 
   return (
     <section className="xl:px-[100px] md:px-[75px] px-7 pb-[160px] md:pb-[105px] xl:pb-[140px]">
@@ -33,25 +43,31 @@ const Contact = () => {
             Talk to us about a project →
           </label>
 
-          <div className="inline-flex w-full md:w-auto md:min-w-[456px] xl:min-w-[608px] bg-white rounded-full overflow-hidden">
+          <form
+            onSubmit={handleSubmit}
+            className="inline-flex w-full md:w-auto md:min-w-[456px] xl:min-w-[608px] gap-4 bg-white rounded-full overflow-hidden"
+          >
             <input
               id="email"
+              name="email"
               type="email"
               placeholder="name@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-[30px] xl:px-10 py-3 xl:py-5 text-main placeholder:text-gray-5 text-xl xl:text-[28px] focus:outline-none"
+              // value={email}
+              // onChange={(e) => setEmail(e.target.value)}
+              className="w-full pl-[30px] xl:pl-10 py-3 xl:py-5 text-main placeholder:text-gray-5 text-xl xl:text-[28px] focus:outline-none"
             />
             <button
-              type="button"
-              className="block w-fit px-[30px] xl:px-10 py-3 xl:py-5 text-main font-medium text-xl xl:text-[28px] hover:opacity-80 cursor-pointer min-w-fit"
+              type="submit"
+              className="block w-fit pr-[30px] xl:pr-10 py-3 xl:py-5 text-main font-medium text-xl xl:text-[28px] hover:opacity-80 cursor-pointer min-w-fit"
             >
               Send
             </button>
-          </div>
+          </form>
 
           <p className="mt-8 text-main  text-xl xl:text-[28px]">
-            We take on a small number of high-impact projects.
+            {
+              isSubmitted ? "Thanks for reaching out, we’ll be in touch shortly." : "We take on a small number of high-impact projects."
+            }
           </p>
         </div>
       </div>
