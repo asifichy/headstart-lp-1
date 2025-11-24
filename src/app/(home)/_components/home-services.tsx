@@ -11,7 +11,7 @@ const HomeServices = () => {
 			<SectionHeader
 				title={
 					<>
-						120 AI <br className="sm:hidden" /> UI cards.
+						120 AI UI cards.
 						<br className="sm:hidden" /> Fully production ready.
 					</>
 				}
