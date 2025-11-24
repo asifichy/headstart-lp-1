@@ -30,7 +30,7 @@ const HomeHero = () => {
 						Design AI like the best in the world
 					</h1>
 
-					<div className="py-12 md:py-[33px] xl:py-11 xl:max-w-[888px] md:max-w-[666px] max-w-[100%] mx-auto">
+					<div className="py-12 md:py-[33px] xl:py-11 xl-min:max-w-[888px] lg-min:max-w-[678px] md:max-w-[666px] max-w-[100%] mx-auto">
 						<EntryPoint
 							id="#606159"
 							skeletonType={EntryPointType.CIRCLE}

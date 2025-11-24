@@ -8,7 +8,9 @@
 	--breakpoint-xs: 431px;
 	--breakpoint-sm: 640px;
 	--breakpoint-md: 769px;
+	--breakpoint-lg-min: 1024px;
 	--breakpoint-lg: 1141px;
+	--breakpoint-xl-min: 1536px;
 	--breakpoint-xl: 1550px;
 
 	--color-footer-bg: rgba(24, 34, 48, 0.08);
