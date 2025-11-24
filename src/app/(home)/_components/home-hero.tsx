@@ -32,7 +32,7 @@ const HomeHero = () => {
 						</h1>
 					</div>
 
-					<div className="md:flex md:justify-center md:items-center py-12 md:py-[33px] xl:py-11 xl-min:max-w-[888px] lg-min:max-w-[678px] md:max-w-[666px] w-full mx-auto">
+					<div className="md:flex md:justify-center md:items-center py-12 md:py-[33px] xl:py-11 xl-min:max-w-[888px] lg-min:max-w-[678px] md:max-w-[666px] sm-min:max-w-[528px] w-full mx-auto sm:overflow-hidden">
 						<EntryPoint
 							id="#606159"
 							skeletonType={EntryPointType.CIRCLE}
