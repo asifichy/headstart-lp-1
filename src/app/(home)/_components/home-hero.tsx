@@ -2,6 +2,7 @@
 
 import Button from "@/components/ui/button";
 import { KIT_PRICE } from "@/lib/data/data";
+import { EntryPoint, EntryPointSize, EntryPointType } from "@thinkflagship/horizon-web-shorts";
 import Image from "next/image";
 import Link from "next/link";
 import HSLogo from "./HS";
@@ -28,7 +29,16 @@ const HomeHero = () => {
 					<h1 className="font-medium xl:text-[110px] xl:leading-[110px] md:text-[82px] md:leading-[82px] text-[64px] leading-[64px] xl:max-w-[1064px] md:max-w-[798px] max-w-[470px] tracking-[-0.02em] max-auto pt-4 md:pt-8 xl:pt-10">
 						Design AI like the best in the world
 					</h1>
-					<p className="xl:max-w-[955px] md:max-w-[716px] xs:max-w-full max-w-[372px] xl:mt-[60px] md:mt-[45px] mt-12 xl:text-[28px] xl:leading-[1.4] text-xl tracking-[-0.4px] font-medium">
+
+					<div className="py-12 md:py-[33px] xl:py-11 xl:max-w-[888px] md:max-w-[666px] max-w-[100%] mx-auto">
+						<EntryPoint
+							id="#606159"
+							skeletonType={EntryPointType.CIRCLE}
+							skeletonSize={EntryPointSize.BOLD}
+						/>
+					</div>
+
+					<p className="xl:max-w-[955px] md:max-w-[716px] xs:max-w-full max-w-[372px] xl:text-[28px] xl:leading-[1.4] text-xl tracking-[-0.4px] font-medium">
 						Moonshot is a mobile-first AI UI kit with 120 Figma-ready cards inspired by apps like ChatGPT, Copilot, Gemini, Grok, Anthropic, and more.
 					</p>
 				</div>
