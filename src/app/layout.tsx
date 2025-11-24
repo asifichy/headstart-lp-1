@@ -1,5 +1,6 @@
+import FlagshipProvider from "@/components/layout/FlagshipProvider";
 import Footer from "@/components/layout/footer";
-// import "@thinkflagship/horizon-web-shorts/styles.css";
+import "@thinkflagship/horizon-web-shorts/styles.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
@@ -55,8 +56,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${roobert.className} antialiased`}>
 
-				{/* <FlagshipProvider>{children}</FlagshipProvider> */}
-				{children}
+				<FlagshipProvider>{children}</FlagshipProvider>
 
 				<Footer />
 

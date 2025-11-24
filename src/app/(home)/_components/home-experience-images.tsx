@@ -77,6 +77,9 @@ const HomeExperienceImages = () => {
 			smoothWheel: true,
 		});
 
+		// Expose lenis globally
+		window.lenis = lenis;
+
 		lenis.on("scroll", ScrollTrigger.update);
 
 		function raf(time: number) {
@@ -87,6 +90,7 @@ const HomeExperienceImages = () => {
 
 		return () => {
 			lenis.destroy();
+			delete window.lenis;
 		};
 	}, [width]);
 
@@ -139,7 +143,7 @@ const HomeExperienceImages = () => {
 				priority
 				width={1540}
 				height={464}
-				className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-auto xl:h-[1480px] md:h-[1069px] sm:h-[1003px] h-[809px]"
+				className="absolute left-1/2 !-translate-x-1/2 top-1/2 !-translate-y-1/2 w-auto xl:h-[1480px] md:h-[1069px] sm:h-[1003px] h-[809px]"
 				alt="bg"
 			/>
 

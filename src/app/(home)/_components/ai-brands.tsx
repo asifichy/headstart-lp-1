@@ -62,12 +62,12 @@ const AiBrands = () => {
 								width={172}
 								height={172}
 								className={cn(
-									"absolute left-1/2 -translate-x-1/2 top-0 object-contain xl:h-[calc(100%-56px)] h-[calc(100%-48px)] xl:w-1/2 w-[45%] object-center select-none"
+									"absolute left-1/2 !-translate-x-1/2 top-0 object-contain xl:h-[calc(100%-56px)] h-[calc(100%-48px)] xl:w-1/2 w-[45%] object-center select-none"
 								)}
 								alt={item.title}
 								draggable={false} // Prevent image dragging
 							/>
-							<span className="font-medium xl:text-[22px] text-base absolute bottom-5 text-center left-1/2 -translate-x-1/2 select-none">
+							<span className="font-medium xl:text-[22px] text-base absolute bottom-5 text-center left-1/2 !-translate-x-1/2 select-none">
 								{item.title}
 							</span>
 						</div>
