@@ -1,0 +1,153 @@
+name: Deploy to S3 + CloudFront
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy to"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - prod
+      # ref:
+      #   description: "Branch, commit to deploy (e.g. main)"
+      #   required: false
+      #   default: "master"
+      #   type: string
+
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Set Environment Variables
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            ENV_TYPE="${{ github.event.inputs.environment }}"
+          elif [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+            ENV_TYPE="prod"
+          else
+            ENV_TYPE="dev"
+          fi
+          
+          echo "Deploying to $ENV_TYPE environment"
+          
+          if [[ "$ENV_TYPE" == "prod" ]]; then
+            echo "S3_BUCKET=${{ secrets.PROD_S3 }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_DISTRIBUTION_ID=${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }}" >> $GITHUB_ENV
+          else
+            echo "S3_BUCKET=${{ secrets.DEV_S3 }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_DISTRIBUTION_ID=${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}" >> $GITHUB_ENV
+          fi
+
+      - name: Checkout (manual dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref }}
+
+      - name: Checkout (push event)
+        if: github.event_name != 'workflow_dispatch'
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        if: hashFiles('bun.lock') != ''
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies (bun)
+        if: hashFiles('bun.lock') != ''
+        run: bun install --frozen-lockfile
+
+      - name: Build (static export) [bun]
+        if: hashFiles('bun.lock') != ''
+        run: bun run build
+
+      - name: Setup Node.js (yarn)
+        if: hashFiles('yarn.lock') != ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enable Corepack (yarn)
+        if: hashFiles('yarn.lock') != ''
+        run: corepack enable
+
+      - name: Install dependencies (yarn)
+        if: hashFiles('yarn.lock') != ''
+        run: yarn install --frozen-lockfile
+
+      - name: Build (static export) [yarn]
+        if: hashFiles('yarn.lock') != ''
+        run: yarn build
+
+      - name: Setup Node.js (npm)
+        if: hashFiles('bun.lock') == '' && hashFiles('yarn.lock') == ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies (npm)
+        if: hashFiles('bun.lock') == '' && hashFiles('yarn.lock') == ''
+        run: npm install
+
+      - name: Build (static export) [npm]
+        if: hashFiles('bun.lock') == '' && hashFiles('yarn.lock') == ''
+        run: npm run build
+
+      - name: Upload static site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: out-static
+          path: out
+          if-no-files-found: error
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload other assets (CSS, JS outside _next, images, fonts) with 1 day cache
+        run: |
+          aws s3 sync ./out s3://$S3_BUCKET \
+            --delete \
+            --exclude "_next/*" \
+            --exclude "*.html" \
+            --cache-control "public,max-age=86400"
+
+      - name: Upload immutable Next assets with long cache
+        run: |
+          if [ -d "out/_next/static" ]; then
+            aws s3 sync ./out/_next/static s3://$S3_BUCKET/_next/static \
+              --cache-control "public,max-age=31536000,immutable"
+          fi
+
+      - name: Upload HTML with immediate revalidation
+        run: |
+          # Copy HTML relative to ./out so keys are rooted (no leading "out/")
+          aws s3 cp ./out s3://$S3_BUCKET/ \
+            --recursive \
+            --exclude "*" --include "*.html" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "text/html; charset=utf-8"
+
+      - name: Create CloudFront invalidation
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" \
+            --paths "/*"
+
