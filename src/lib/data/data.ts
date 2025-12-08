@@ -1,1 +1,0 @@
-export const KIT_PRICE = "$29";

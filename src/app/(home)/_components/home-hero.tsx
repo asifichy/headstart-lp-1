@@ -45,7 +45,7 @@ const HomeHero = () => {
 					</p>
 				</div>
 				<div className="grid grid-cols-2 xs:flex items-center justify-center xl:mt-[60px] md:mt-[45px] mt-12 xl:gap-5 sm:gap-4 xs:gap-[18px] gap-3 w-full">
-					<Button variant="primary">Buy the Kit - {KIT_PRICE}</Button>
+					<Button variant="primary">Buy now{KIT_PRICE}</Button>
 					<Button variant="secondary">Get free kit</Button>
 				</div>
 			</div>

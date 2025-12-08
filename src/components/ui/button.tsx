@@ -31,8 +31,8 @@ const Button = ({
     <>
       <button
         className={cn(
-          "relative group cursor-pointer sm:min-w-[180px] w-full xs:w-[180px] h-[60px] xl:w-[258px] xl:h-[78px]  text-nowrap inline-flex items-center justify-center rounded-full xl:text-2xl md:text-lg text-base leading-[1.25] overflow-hidden text-main gap-2",
-          variant === "primary" && "bg-grad font-bold",
+          "relative group cursor-pointer sm:min-w-[180px] w-full xs:w-auto h-[60px] xl:h-[78px] px-[30px] 2xl:px-10 text-nowrap inline-flex items-center justify-center rounded-full xl:text-2xl md:text-lg text-base leading-[1.25] overflow-hidden text-main gap-2",
+          variant === "primary" && "bg-grad font-bold ",
           variant === "secondary" && "bg-gray-5/10 font-medium",
           className
         )}

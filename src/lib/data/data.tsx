@@ -1,0 +1,1 @@
+export const KIT_PRICE = <span className="text-[#D92C65]"><del className="text-[#313647]">$49</del> $29</span>;
